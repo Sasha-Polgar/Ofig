@@ -13,12 +13,12 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(session({
-  secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true,
-  cookie: { 
-
-  }
+  secret: "Guess it!",
+  cookie: {
+    secure: false,
+    maxAge: (1000*60*60)} // ça fait une heure
 }));
 
 // Configure view engine
