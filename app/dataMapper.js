@@ -11,7 +11,7 @@ const dataMapper = {
     async getOneFigurine(id){
         const sqlQuery = `SELECT * FROM "figurine" WHERE id = $1`;
         const oneFigurine = await db.query(sqlQuery, [id]);
-        return oneFigurine.rows[0];
+        return oneFigurine.rows;
 
     }
 

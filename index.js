@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const express = require('express');
-
+const session = require('express-session');
 // on importe le router
 const router = require('./app/router');
 
@@ -11,6 +11,15 @@ const PORT = process.env.PORT || 5000;
 
 
 const app = express();
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { 
+
+  }
+}));
 
 // Configure view engine
 app.set("view engine", "ejs");

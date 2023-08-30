@@ -1,21 +1,21 @@
 const express = require('express');
+const router = express.Router();
 
 // on importe nos controllers
 const mainController = require('./controllers/mainController');
 const bookmarksController = require('./controllers/bookmarksController');
 
 
-const router = express.Router();
 
 // page d'accueil
 router.get('/', mainController.homePage);
 
 // page article
-router.get('/article', mainController.articlePage);
+router.get('/article/:id', mainController.articlePage);
 
 // page favoris
 router.get('/bookmarks', bookmarksController.bookmarksPage );
-
+router.get ('/bookmarks/add/:id', bookmarksController.bookmarksFavoritePage);
 // Middleware 404
 router.use((req, res) => {
     res.status(404).render("404");

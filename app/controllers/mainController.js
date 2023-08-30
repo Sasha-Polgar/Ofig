@@ -16,9 +16,21 @@ const mainController = {
   },
 
   // méthode pour la page article
-  articlePage(req, res){
-    
-    res.render("article");
+  async articlePage(req, res){
+    const articleId = parseInt(req.params.id);
+    if (isNaN(articleId)) { return next(); /* 404 */ }
+
+
+    try {
+      const articles = await dataMapper.getOneFigurine(articleId);
+      console.log(articles);
+      res.render('article', {articles});
+      
+    }
+    catch(err){
+      console.error(err);
+      res.status(500).render('500');
+    }
   }
 
 };
