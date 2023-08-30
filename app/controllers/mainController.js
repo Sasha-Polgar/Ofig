@@ -1,14 +1,22 @@
-const path = require('path');
+const dataMapper = require('../dataMapper');
 
 const mainController = {
 
   // méthode pour la page d'accueil
-  homePage: (req, res) => {
-    res.render("accueil");
+  async homePage (req, res){
+    try{
+      const allFigurines = await dataMapper.getAllFigurines();
+      res.render("accueil", {allFigurines});
+    }
+
+    catch(err){
+      console.error(err);
+      res.status(500).render('500');
+    }
   },
 
   // méthode pour la page article
-  articlePage: (req, res) => {
+  articlePage(req, res){
     
     res.render("article");
   }

@@ -16,6 +16,10 @@ router.get('/article', mainController.articlePage);
 // page favoris
 router.get('/bookmarks', bookmarksController.bookmarksPage );
 
+// Middleware 404
+router.use((req, res) => {
+    res.status(404).render("404");
+  });
 
 // on exporte le router 
 module.exports = router;
