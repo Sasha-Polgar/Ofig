@@ -12,34 +12,33 @@
         <div class="col-lg-9">
   
           <div class="row">
-            <% articles.forEach(article => {%>
             <div class="col-lg-6">
-              <img class="" src="./images/aerith.png" alt="">
+              <img class="" src="/images/<%=articles.name.toLowerCase()%>.png" alt="">
             </div>
   
             <div class="col-lg-6">
               <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">
-                      <%=article.name%>
-                      <div class="badge badge-pill badge-<%=article.category.toLowerCase()%>"><%=article.category%></div>
+                      <%=articles.name%>
+                      <div class="badge badge-pill badge-<%=articles.category.toLowerCase()%>"><%=articles.category%></div>
                     </h3>
-                    <p class="card-text">Taille réelle : <%=article.size%>cm</p>
-                    <p class="card-text"><%=article.description%></p>
+                    <p class="card-text">Taille réelle : <%=articles.size%>cm</p>
+                    <p class="card-text"><%=articles.description%></p>
                     <p class="card-text">3
                       Note moyenne : &#9733; &#9733; &#9733; &#9733; &#9734;
                       <br>
                       <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
                     </p>
-                    <h5>$<%=article.price%></h5>
+                    <h5>$<%=articles.price%></h5>
                     <p class="card-text">
-                      <a href="#" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+                      <a href="/bookmarks/add/<%=articles.id%>" class="link-add-bookmarks">+ Ajouter aux favoris</a>
                     </p>
                 </div>
               </div>
             
             </div>
-            <%})%>
+           
           </div>
           <!-- /.row -->
   

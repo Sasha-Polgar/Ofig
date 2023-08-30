@@ -21,6 +21,9 @@ app.use(session({
     maxAge: (1000*60*60)} // ça fait une heure
 }));
 
+
+
+
 // Configure view engine
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
