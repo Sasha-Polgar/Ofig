@@ -1,0 +1,27 @@
+{
+  "name": "S04_Atelier_PP_Ofig-Sasha-Polgar-FabioBrondino",
+  "version": "1.0.0",
+  "description": "## Étape 1: Mise en place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Cheesecake/S04_Atelier_PP_Ofig-Sasha-Polgar-FabioBrondino.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Cheesecake/S04_Atelier_PP_Ofig-Sasha-Polgar-FabioBrondino/issues"
+  },
+  "homepage": "https://github.com/O-clock-Cheesecake/S04_Atelier_PP_Ofig-Sasha-Polgar-FabioBrondino#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "pg": "^8.11.3"
+  }
+}
