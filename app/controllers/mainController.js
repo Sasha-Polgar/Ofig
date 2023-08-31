@@ -18,7 +18,7 @@ const mainController = {
   // méthode pour la page article
   async articlePage(req, res){
     const articleId = parseInt(req.params.id);
-    if (isNaN(articleId)) { return next(); /* 404 */ }
+    if (isNaN(articleId)) { return next();}
 
 
     try {

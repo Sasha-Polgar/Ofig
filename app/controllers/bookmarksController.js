@@ -12,7 +12,6 @@ const bookmarksController = {
 
   async addFavoriteFigurine(req, res) {
     const figurineId = parseInt(req.params.id);
-    try{
 
       if (!req.session.bookmarks) {
           req.session.bookmarks = [];
@@ -22,14 +21,13 @@ const bookmarksController = {
 
         const figurine = await dataMapper.getOneFigurine(figurineId);
         req.session.bookmarks.push(figurine);
-      };
-      res.redirect('/bookmarks');
-    }
-
-    catch(err){
-      console.error(err);
-      res.status(500).render('500');
-    }
+        res.redirect('/bookmarks');
+      }
+      else{
+        res.redirect('/bookmarks');
+      }
+    
+    
 },
 
   deleteFavoriteFigurine(req, res) {

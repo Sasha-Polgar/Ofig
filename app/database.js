@@ -1,4 +1,5 @@
 // 1. require le module
+require('dotenv').config();
 const pg = require('pg');
 
 // 2. Créer un client
