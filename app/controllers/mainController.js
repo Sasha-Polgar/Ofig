@@ -23,7 +23,8 @@ const mainController = {
 
     try {
       const articles = await dataMapper.getOneFigurine(articleId);
-      res.render('article', {articles});
+      const reviews = await dataMapper.getReviews(articleId);
+      res.render('article', {articles, reviews});
       
     }
     catch(err){

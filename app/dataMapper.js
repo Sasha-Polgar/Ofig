@@ -13,8 +13,13 @@ const dataMapper = {
         const oneFigurine = await db.query(sqlQuery, [id]);
         return oneFigurine.rows[0];
 
-    }
+    },
 
+    async getReviews(figurineId){
+        const sqlQuery = `SELECT * FROM "review" WHERE figurine_id = $1`;
+        const result = await db.query(sqlQuery, [figurineId]);
+        return result.rows;
+    }
 
 };
 
