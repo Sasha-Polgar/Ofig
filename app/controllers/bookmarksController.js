@@ -5,8 +5,11 @@ const bookmarksController = {
   // méthode pour afficher les favoris
   
   bookmarksPage(req, res) {
-      const bookmarks = req.session.bookmarks;
-      res.render("favoris", { bookmarks });
+      if(!req.session.bookmarks){
+        req.session.bookmarks = []
+      }
+
+      res.render("favoris", { bookmarks: req.session.bookmarks });
   
   },
 
