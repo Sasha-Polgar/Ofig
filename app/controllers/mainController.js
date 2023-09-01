@@ -5,8 +5,8 @@ const mainController = {
   // méthode pour la page d'accueil
   async homePage (req, res){
     try{
-      const allFigurines = await dataMapper.getAllFigurines();
-      res.render("accueil", {allFigurines});
+      const figurines = await dataMapper.getAllFigurines();
+      res.render("accueil", {figurines});
     }
 
     catch(err){
@@ -28,6 +28,31 @@ const mainController = {
       
     }
     catch(err){
+      console.error(err);
+      res.status(500).render('500');
+    }
+  },
+
+  async leftMenu(req, res, next){
+    try{
+      const categoryNumber = await dataMapper.getCategoryNumber();
+      res.locals.leftMenu = categoryNumber;
+      next();
+    }
+    catch{
+      console.error(err);
+      res.status(500).render('500');
+    }
+  },
+
+  async categoryPage(req, res, next) {
+    const category = req.params.category;
+    const figurines = await dataMapper.getFigurinesByCategory(category);
+    try {
+      res.render('accueil', {figurines});
+    }
+
+    catch {
       console.error(err);
       res.status(500).render('500');
     }
